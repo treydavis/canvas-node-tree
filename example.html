@@ -5,6 +5,7 @@
 </head>
 <body>
     <canvas id='canvas' width='300' height='300'></canvas>
+    <button id='pause-button'>Pause</button>
     <script src="./nodetree.js"></script>
     <script>
         var img = new Image()
@@ -39,6 +40,10 @@
         rootNode.__proto__ = nodetree.NodePrototype
         
         nodetree.start('canvas', rootNode)
+
+        document.getElementById('pause-button').onclick = function() {
+            nodetree.paused = !nodetree.paused
+        }
     </script>
 </body>
 </html>

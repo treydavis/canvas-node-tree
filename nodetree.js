@@ -53,8 +53,11 @@
         var context, lastTimeStamp = 0
         var animationFrame = function(timeStamp) {
             window.requestAnimationFrame(animationFrame)
+
             delta = timeStamp - lastTimeStamp
             lastTimeStamp = timeStamp
+
+            if (exports.paused) return
 
             context.setTransform(1, 0, 0, 1, 0, 0)
             context.clearRect(0, 0, canvas.width, canvas.height)
@@ -74,5 +77,7 @@
             rootNode._draw(context)
         })
     }
+
+    exports.paused = false
 
 })(typeof exports === 'undefined'? this['nodetree']={}: exports)
