@@ -1,6 +1,6 @@
 #canvas-node-tree
 
-This project is intended to be the simplest possible 2D game engine for modern browsers using the <canvas> element.
+This project is intended to be the simplest possible 2D game engine for modern browsers using the `canvas` element.
 
 ###NodePrototype
 The key object is the `NodePrototype`. You create a tree of nodes that are rendered on every frame. The nodes have their own nested transformations, allowing for convienent organization of the scene.
