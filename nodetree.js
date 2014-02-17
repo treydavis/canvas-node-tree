@@ -5,7 +5,7 @@
         skewX: 0, skewY: 0,
         scaleX: 1, scaleY: 1,
         rotation: 0,
-        hidden: 0,
+        hidden: false,
         children: [],
         _update: function(delta) {
             this.update(delta)
