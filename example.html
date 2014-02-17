@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>canvas-node-tree example</title>
+</head>
+<body>
+    <canvas id='canvas' width='300' height='300'></canvas>
+    <script src="./nodetree.js"></script>
+    <script>
+        var img = new Image()
+        img.src = 'http://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png'
+
+        var sprite1 = {
+            skewX: 0.1,
+            scaleX: 0.3, scaleY: 0.3,
+            update: function(delta) {
+                this.x += 6*delta
+            },
+            draw: function(context) {
+                context.drawImage(img, 0, 0)
+            }
+        }
+        sprite1.__proto__ = nodetree.NodePrototype
+
+        var sprite2 = {
+            scaleX: 0.3, scaleY: 0.3,
+            update: function(delta) {
+                this.rotation += 0.1*delta
+            },
+            draw: function(context) {
+                context.drawImage(img, 0, 0)
+            }
+        }
+        sprite2.__proto__ = nodetree.NodePrototype
+
+        var rootNode = {
+            children: [sprite2, sprite1]
+        }
+        rootNode.__proto__ = nodetree.NodePrototype
+        
+        nodetree.start('canvas', rootNode)
+    </script>
+</body>
+</html>
